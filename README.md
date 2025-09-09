@@ -1,4 +1,4 @@
-# EUR/GBP → USD with historical rates (my first Jupyter)
+# EUR/GBP → USD with historical rates 
 
 I took a small purchases dataset in **EUR** and **GBP** and converted everything to **USD** using **historical** FX from VATComply.  
 I left the notebook **intentionally messy** so you can see where I broke things and how I fixed them—false starts, comments, and all.
