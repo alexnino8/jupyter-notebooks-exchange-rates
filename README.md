@@ -1,5 +1,17 @@
-This project was my first using jupyter notebooks. Inside the notebook (which is a bit messy) you can see that the goal is to convert a list of purchase amounts from EUR and GBP to USD and then export a new csv. 
+# EUR/GBP → USD with historical rates (my first Jupyter)
 
-The exchange rates had to be of a specific date so I used the Vatcomply API to get the exhange rate from that date and added the exchange rate column. Then I multiplied the amount times the exchange rate to a new amount_usd column. 
+I took a small purchases dataset in **EUR** and **GBP** and converted everything to **USD** using **historical** FX from VATComply.  
+I left the notebook **intentionally messy** so you can see where I broke things and how I fixed them—false starts, comments, and all.
 
-the output.csv is the first export but I noticed that the amounts were hard to read because it had no decimal places constraints, which I added for the second export which is rates_converted.csv
+## What I did
+- Loaded purchases into pandas (`amount`, `currency`).
+- Pulled **historical** FX for a specific date from **VATComply**.
+- Added `exchange_rate` and computed `amount_usd`.
+- Exported two files:
+  - `output.csv` — first pass  
+  - `rates_converted.csv` — same data, but with fixed decimals for readability
+
+## What went wrong & how I fixed it
+- Tried looping rows → hit a `TypeError` indexing strings; switched to **vectorized** pandas (`.loc` / `.map`).
+- Decimal formatting looked messy → added fixed precision in the final export.
+
